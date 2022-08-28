@@ -18,10 +18,10 @@ module.exports = class Annoy extends Plugin {
           send = args[0] != "-p"
         }
         if (rand(1, 1000) != 420) { // nice
-          const r = rand(1, 100)
           const res = await fetch(`https://www.reddit.com/r/cuteanimeboys/top.json?limit=${rand}&t=all`)
           const resp = await res.json()
-          url = resp.data.children[r-1].data.url
+          const r = Math.floor(Math.random() * resp.data.children.length - 1);
+          url = resp.data.children[r].data.url
         } else {
           const usr = getModule(["getCurrentUser"], false).getCurrentUser()
           url = `https://cdn.discordapp.com/avatars/${usr.id}/${usr.avatar}.webp?size=512`
