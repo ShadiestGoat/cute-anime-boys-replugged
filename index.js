@@ -40,7 +40,7 @@ module.exports = class Annoy extends Plugin {
             break
           case 42:
             const chan = getModule(["getDMFromUserId"], false).getChannel(channels.getChannelId())
-            if (chan.type == 1) {
+            if (chan && chan.type == 1) {
               url = `https://cdn.discordapp.com/avatars/${chan.rawRecipients[0].id}/${chan.rawRecipients[0]}.webp?size=512`
             } else {
               url = await fetchReddit()
