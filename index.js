@@ -18,7 +18,7 @@ module.exports = class Annoy extends Plugin {
           send = args[0] != "-p"
         }
         if (rand(1, 1000) != 420) { // nice
-          const res = await fetch(`https://www.reddit.com/r/cuteanimeboys/top.json?limit=${rand}&t=all`)
+          const res = await fetch('https://www.reddit.com/r/cuteanimeboys/top.json?limit=100&t=all')
           const resp = await res.json()
           const r = Math.floor(Math.random() * resp.data.children.length - 1);
           url = resp.data.children[r].data.url
